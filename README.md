@@ -1,5 +1,6 @@
-# Diferential expression in microarrays (hta2.0) of Colon Cancer samples.
-This repository contains code and supplementary materials for paper named "xxx". Karen Apellido, Jose Maria Zamora-Fuentes, Jesus Espinal-Enriquez
+# Transcriptomic analyses of metformin treatment reveal novel mechanism of action in cervical cancer inhibition
+This repository contains code and supplementary materials for paper named "Transcriptomic analyses of metformin treatment reveal novel mechanism of action in cervical cancer inhibition
+". Karen Griselda De la Cruz-López,1,4 Heriberto A Valencia-González,4 Freddy Omar Beltrán-Anaya,2 Luis Alfaro-Ruiz,2 Alfredo Hidalgo-Miranda,2 Patricio Gariglio-Vidal,4, Jesús Espinal-Enríquez,6,7, Jose Maria Zamora Fuentes Alejandro García-Carrancá.5, *
 
 ## Data
 
@@ -19,7 +20,7 @@ Rename explicitly files as:
 
 `mv Vh4-4s.CEL Vh3-4s.CEL`
 
-## Diferential Expression
+## Differential Expression
 
 You can make this step with:
 
