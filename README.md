@@ -1,8 +1,9 @@
 # Transcriptomic analyses of metformin treatment reveal novel mechanism of action in cervical cancer inhibition
-This repository contains code and supplementary materials for paper named "Transcriptomic analyses of metformin treatment reveal novel mechanism of action in cervical cancer inhibition
-". Karen Griselda De la Cruz-López,1,4 Heriberto A Valencia-González,4 Freddy Omar Beltrán-Anaya,2 Luis Alfaro-Ruiz,2 Alfredo Hidalgo-Miranda,2 Patricio Gariglio-Vidal,4, Jesús Espinal-Enríquez,6,7, Jose Maria Zamora Fuentes Alejandro García-Carrancá.5, *
+This repository contains code and supplementary materials for paper named "Transcriptomic analyses of metformin treatment reveal novel mechanism of action in cervical cancer inhibition". Karen Griselda De la Cruz-López, Heriberto A Valencia-González, Freddy Omar Beltrán-Anaya, Luis Alfaro-Ruiz, Alfredo Hidalgo-Miranda, Patricio Gariglio-Vidal, Jesús Espinal-Enríquez, Jose Maria Zamora Fuentes, Alejandro García-Carrancá.
 
 ## Data
+
+Data availibality is pending approval.
 
 Put Data files (Data/Tx1-2s.CEL, Data/Vh1-2s.CEL, ...) in :
 
