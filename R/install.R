@@ -1,0 +1,8 @@
+# .libPaths(c("~/R/library/4.0/",.libPaths()))
+install.packages("gprofiler2", repos='http://cran.us.r-project.org')
+BiocManager::install("oligo")
+BiocManager::install("limma")
+BiocManager::install("affycoretools")
+BiocManager::install("hta20transcriptcluster.db")
+BiocManager::install('EnhancedVolcano')
+BiocManager::install("biomaRt")
