@@ -3,8 +3,10 @@ This repository contains code and supplementary materials for paper named "xxx".
 
 ## Data
 
-Put Data files (Data/Tx1-2s.CEL, Data/Vh1-2s.CEL, ...) in 
+Put Data files (Data/Tx1-2s.CEL, Data/Vh1-2s.CEL, ...) in :
+
 `$ ls Data/`
+
 Rename explicitly files as:
 `mv Tx2-4s.CEL Tx1-4s.CEL`
 `mv Tx4-4s.CEL Tx2-4s.CEL`
