@@ -3,7 +3,7 @@ This repository contains code and supplementary materials for paper named "Trans
 
 ## Data
 
-Data availibality is pending approval.
+*Data availibality is pending approval.*
 
 Put Data files (Data/Tx1-2s.CEL, Data/Vh1-2s.CEL, ...) in :
 
