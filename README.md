@@ -1,4 +1,4 @@
-# microarrays-colon
+# Diferential expression in microarrays (hta2.0) of Colon Cancer samples.
 This repository contains code and supplementary materials for paper named "xxx". Karen Apellido, Jose Maria Zamora-Fuentes, Jesus Espinal-Enriquez
 
 ## Data
