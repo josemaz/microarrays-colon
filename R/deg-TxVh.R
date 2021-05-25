@@ -2,6 +2,7 @@ library(crayon)
 library(dplyr)
 library(gprofiler2)
 library(edgeR)
+devtools::install_github('kevinblighe/EnhancedVolcano')
 library(EnhancedVolcano)
 library(oligo)
 library(stringr)
@@ -35,7 +36,7 @@ muestra <- paste0(tipo,"-",tiempo)
 muestras <- data.frame(nfile, muestra, tipo, tiempo, replica)
 muestras <- muestras[order(muestras$muestra),]
 
-deg <- function(m,mdesign, slabs=NULL){
+deg <- function(m,mdesign, slabs=NULL, tit=""){
   cat(red("Ajuste ...\n"))
   fit <- lmFit(m, mdesign)
   head(fit$coefficients)
@@ -64,20 +65,28 @@ deg <- function(m,mdesign, slabs=NULL){
   cat(red("Volcano ...\n"))
   v <- EnhancedVolcano(x,
                   lab = x$ID,
+                  # title = "",
+                  subtitle = tit,
                   x = 'logFC',
                   y = 'P.Value',
-                  selectLab = slabs,
+                  # selectLab = slabs,
                   FCcutoff = FCthres,
                   pCutoff = pCut,
                   legendPosition = 'right',
                   labSize = 3,
+                  # labCol = 'black',
+                  # labFace = 'bold',
                   legendLabSize = 8,
-                  legendIconSize = 3,
+                  legendIconSize = 4,
                   # pointSize = 2,
                   drawConnectors = TRUE,
                   widthConnectors = 0.75,
                   colConnectors = 'black',
                   boxedLabels = TRUE,
+                  gridlines.major = FALSE,
+                  gridlines.minor = FALSE,
+                  col=c('black', 'black', 'black', 'red3'),
+                  colAlpha = 1,
                   ylim = c(0, -log10(x[order(x$P.Value),][1,5])))
   cat(red("GO ...\n"))
   geneGO <- x %>%
@@ -108,7 +117,8 @@ print(filtro)
 print(head(mtemp))
 print(design)
 
-v <- deg(mtemp,design)
+options(ggrepel.max.overlaps = Inf)
+v <- deg(mtemp,design, tit = "11 days")
 v
 v <- deg(mtemp,design,c('CASTOR2','PCDH17','COL1A2'))
 v 
@@ -125,7 +135,7 @@ print(filtro)
 print(head(mtemp))
 print(design)
 
-v <- deg(mtemp,design)
+v <- deg(mtemp,design, tit = "24 days")
 v
 v <- deg(mtemp,design,c('NR4A1','NR4A3','ATF3','COL1A2'))
 v 

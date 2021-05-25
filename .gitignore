@@ -1,7 +1,12 @@
+# ch3m
 sftp-config.json
-Data/*
+Data/*.CEL
+Data/*.tsv
+Data/*.txt
 Plots
 py/hetamaps-lines.py
+Docs
+pipeline
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
