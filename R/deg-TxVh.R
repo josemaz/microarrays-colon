@@ -2,7 +2,7 @@ library(crayon)
 library(dplyr)
 library(gprofiler2)
 library(edgeR)
-devtools::install_github('kevinblighe/EnhancedVolcano')
+# devtools::install_github('kevinblighe/EnhancedVolcano')
 library(EnhancedVolcano)
 library(oligo)
 library(stringr)
@@ -59,48 +59,51 @@ deg <- function(m,mdesign, slabs=NULL, tit=""){
                 genelist = rownames(m))
   if(is.null(slabs)){
     print(head(x))
+    fout<-paste0("Data/",gsub(" ", "",tit),".tsv")
+    print(paste0("Writing DEG file by gene: ",fout))
+    write.table(x,file=fout,row.names = F, sep = '\t')
   }else{
     print(x[x$ID %in% slabs,])
   }
-  cat(red("Volcano ...\n"))
-  v <- EnhancedVolcano(x,
-                  lab = x$ID,
-                  # title = "",
-                  subtitle = tit,
-                  x = 'logFC',
-                  y = 'P.Value',
-                  # selectLab = slabs,
-                  FCcutoff = FCthres,
-                  pCutoff = pCut,
-                  legendPosition = 'right',
-                  labSize = 3,
-                  # labCol = 'black',
-                  # labFace = 'bold',
-                  legendLabSize = 8,
-                  legendIconSize = 4,
-                  # pointSize = 2,
-                  drawConnectors = TRUE,
-                  widthConnectors = 0.75,
-                  colConnectors = 'black',
-                  boxedLabels = TRUE,
-                  gridlines.major = FALSE,
-                  gridlines.minor = FALSE,
-                  col=c('black', 'black', 'black', 'red3'),
-                  colAlpha = 1,
-                  ylim = c(0, -log10(x[order(x$P.Value),][1,5])))
-  cat(red("GO ...\n"))
-  geneGO <- x %>%
-    filter((abs(x$logFC)>FCthres) & (x$P.Value< pCut)) #%>%
-    # distinct(ID)
-  cat(paste(unlist(geneGO$ID), collapse=' '),"\n")
-
-  gostres <- gost(query = geneGO$ID,
-                  organism = "hsapiens", significant = TRUE,
-                  user_threshold = 0.05, correction_method = "g_SCS",
-                  sources = c("GO:BP","GO:MF","GO:CC"),
-                  domain_scope = "annotated")
-  if(!is.null(gostres$result)) print(gostres$result)
-  return(v)
+  # cat(red("Volcano ...\n"))
+  # v <- EnhancedVolcano(x,
+  #                 lab = x$ID,
+  #                 # title = "",
+  #                 subtitle = tit,
+  #                 x = 'logFC',
+  #                 y = 'P.Value',
+  #                 # selectLab = slabs,
+  #                 FCcutoff = FCthres,
+  #                 pCutoff = pCut,
+  #                 legendPosition = 'right',
+  #                 labSize = 3,
+  #                 # labCol = 'black',
+  #                 # labFace = 'bold',
+  #                 legendLabSize = 8,
+  #                 legendIconSize = 4,
+  #                 # pointSize = 2,
+  #                 drawConnectors = TRUE,
+  #                 widthConnectors = 0.75,
+  #                 colConnectors = 'black',
+  #                 boxedLabels = TRUE,
+  #                 gridlines.major = FALSE,
+  #                 gridlines.minor = FALSE,
+  #                 col=c('black', 'black', 'black', 'red3'),
+  #                 colAlpha = 1,
+  #                 ylim = c(0, -log10(x[order(x$P.Value),][1,5])))
+  # cat(red("GO ...\n"))
+  # geneGO <- x %>%
+  #   filter((abs(x$logFC)>FCthres) & (x$P.Value< pCut)) #%>%
+  #   # distinct(ID)
+  # cat(paste(unlist(geneGO$ID), collapse=' '),"\n")
+  # 
+  # gostres <- gost(query = geneGO$ID,
+  #                 organism = "hsapiens", significant = TRUE,
+  #                 user_threshold = 0.05, correction_method = "g_SCS",
+  #                 sources = c("GO:BP","GO:MF","GO:CC"),
+  #                 domain_scope = "annotated")
+  # if(!is.null(gostres$result)) print(gostres$result)
+  # return(v)
 }
 
 
